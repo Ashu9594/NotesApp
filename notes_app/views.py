@@ -23,7 +23,6 @@ def edit_notes(request,id):
         notes = Notes.objects.get(id=id)
         return render(request,'edit_notes.html',{'notes':notes})
     elif(request.method == "POST"):
-        id = request.POST.get("id")
         notes = Notes.objects.get(id=id)
         form = NotesForm(request.POST, instance=notes)
         if form.is_valid():
